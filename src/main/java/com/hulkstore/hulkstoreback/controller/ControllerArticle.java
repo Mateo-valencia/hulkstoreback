@@ -6,22 +6,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hulkstore.hulkstoreback.dao.InterfaceArticulo;
-import com.hulkstore.hulkstoreback.model.Articulo;
+import com.hulkstore.hulkstoreback.dao.RepositoryArticle;
+import com.hulkstore.hulkstoreback.model.Article;
 
 @RestController
-public class ControllerArticulo {
+public class ControllerArticle {
+	
 	@Autowired
-	private InterfaceArticulo interfaceArticulo;
+	private RepositoryArticle repositoryArticle;
 	
 	@GetMapping("/getArticles")
-	public Iterable<Articulo> getArticle(){
-		return interfaceArticulo.findAll();
+	public Iterable<Article> getArticle(){
+		return repositoryArticle.findAll();
 	}
 	
 	@PostMapping("/setArticles")
-	public String setArticle(@RequestBody Articulo article) {
-		interfaceArticulo.save(article);
+	public String setArticle(@RequestBody Article article) {
+		repositoryArticle.save(article);
 		return "Saving Article";
 	}
 	

@@ -10,8 +10,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="TB_ARTICULO")
-public class Articulo {
+@Table(name="TB_ARTICLE")
+public class Article {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +22,11 @@ public class Articulo {
 	private String tallas;
 	private String categoria;
 	
-	public Articulo () {
+	public Article () {
 		
 	}
 
-	public Articulo(Long id, String referencia, String precio, String tallas, String categoria) {
+	public Article(Long id, String referencia, String precio, String tallas, String categoria) {
 		super();
 		this.id = id;
 		this.referencia = referencia;
