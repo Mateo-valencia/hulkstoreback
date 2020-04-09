@@ -17,22 +17,24 @@ public class Article {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String referencia;
-	private String precio;
-	private String tallas;
-	private String categoria;
+	private String reference;
+	private String price;
+	private String size;
+	private String category;
+	private String brand;
 	
 	public Article () {
 		
 	}
 
-	public Article(Long id, String referencia, String precio, String tallas, String categoria) {
+	public Article(Long id, String referencia, String precio, String tallas, String categoria, String brand) {
 		super();
 		this.id = id;
-		this.referencia = referencia;
-		this.precio = precio;
-		this.tallas = tallas;
-		this.categoria = categoria;
+		this.reference = referencia;
+		this.price = precio;
+		this.size = tallas;
+		this.category = categoria;
+		this.brand = brand;
 	}
 	
 	
