@@ -1,3 +1,3 @@
 # hulkstoreback
 
-Este proyecto esta creado en spring boot,JPA,H2
+Este proyecto esta creado en spring boot,JPA,H2,Loombok.
