@@ -1,10 +1,21 @@
 package com.hulkstore.hulkstoreback.model;
 
+import java.util.List;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -15,27 +26,35 @@ public class Article {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name = "ARTICLE_ID")
+	private Long idArticle;
 	
+	//@JsonIgnore
+	@OneToMany(mappedBy = "article")
+	private List<Description> descriptions;
+	
+	@JsonIgnore
+	@ManyToOne()
+	@JoinColumn(name = "CATEGORY_ID")
+	private Category category;
+	
+	@Column(name = "ART_REFERENCE")
 	private String reference;
+	@Column(name = "ART_PRICE")
 	private String price;
-	private String size;
-	private String category;
+	@Column(name = "ART_BRAND")
 	private String brand;
 	
 	public Article () {
 		
 	}
 
-	public Article(Long id, String referencia, String precio, String tallas, String categoria, String brand) {
+	public Article(Category category, String reference, String price, String brand) {
 		super();
-		this.id = id;
-		this.reference = referencia;
-		this.price = precio;
-		this.size = tallas;
-		this.category = categoria;
+		this.category = category;
+		this.reference = reference;
+		this.price = price;
 		this.brand = brand;
 	}
-	
-	
+
 }
